@@ -118,6 +118,42 @@ After terminating the instance, the boot drive is destroyed, but the additional 
 <details>
 <summary><b>VPC</b></summary><p>
 
+## Create a Custom Amazon VPC
+
+![](/images/create-vpc.png)
+
+---
+
+## Create Two Subnets for Your Custom Amazon VPC
+
+1. Create a subnet with a CIDR block equal to 192.168.1.0/24. Create the subnet in the Amazon VPC from above exercise 4.1, and specify an Availability Zone for the subnet (for example, US-East-1a).
+
+2. Create a subnet with a CIDR block equal to 192.168.2.0/24. Create the subnet in the Amazon VPC from above exercise 4.1, and specify a different Availability Zone for the subnet than previously specified (for example, US-East-1b).
+
+![](/images/create-subnets.png)
+
+---
+
+## Connect Your Custom Amazon VPC to the Internet and Establish Routing
+
+1. Create an internet gateway and attach it to your custom Amazon VPC.
+
+![](/images/create-igw.png)
+
+2. Add a route to the main route table for your custom Amazon VPC that directs Internet traffic (0.0.0.0/0) to the IGW.
+
+![](/images/update-route-table.png)
+
+3. Create a NAT gateway, place it in the public subnet of your custom Amazon VPC, and assign it an EIP.
+
+![](/images/create-nat.png)
+
+4. Create a new route table and place it within your custom Amazon VPC. Add a route to it that directs Internet traffic (0.0.0.0/0) to the NAT gateway and associate it with the private subnet.
+
+![](/images/create-route-table.png)
+
+You have now created a connection to the Internet for resources within your Amazon VPC. You established routing rules that direct Internet traffic to the IGW regardless of the originating subnet.
+
 </p></details>
 
 <details>
