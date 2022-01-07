@@ -304,6 +304,34 @@ Here I create an IAM user who can perform all administrative IAM functions.
 <details>
 <summary><b>SQS, SWF & SNS</b></summary><p>
 
+# Create an Amazon SNS Topic
+
+![](/images/topic1.png)
+
+---
+
+# Create a Subscription to Your Topic
+
+![](/images/topic2.png)
+
+![](/images/topic3.png)
+
+---
+
+# Publish to a Topic
+
+![](/images/publish1.png)
+
+![](/images/publish2.png)
+
+---
+
+# Create Queue
+
+1. Create a new queue with input as the queue name, 60 seconds for the default visibility, and 5 minutes for the message retention period. Leave the remaining default values for this exercise.
+
+![](/images/sqs1.png)
+
 </p></details>
 
 <details>
