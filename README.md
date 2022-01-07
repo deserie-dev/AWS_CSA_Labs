@@ -342,6 +342,14 @@ Here I create an IAM user who can perform all administrative IAM functions.
 <details>
 <summary><b>ElastiCache</b></summary><p>
 
+# Create an Amazon ElastiCache Cluster Running Memcached
+
+![](/images/memcached1.png)
+
+# Create an Amazon ElastiCache Cluster Running Redis
+
+![](/images/memcached1.png)
+
 </p></details>
 
 <details>
