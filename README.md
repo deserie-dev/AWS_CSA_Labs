@@ -118,11 +118,11 @@ After terminating the instance, the boot drive is destroyed, but the additional 
 <details>
 <summary><b>VPC</b></summary><p>
 
-## Create a Custom Amazon VPC
+# Create a Custom Amazon VPC
 
-## ![](/images/create-vpc.png)
+![](/images/create-vpc.png)
 
-## Create Two Subnets for Your Custom Amazon VPC
+# Create Two Subnets for Your Custom Amazon VPC
 
 1. Create a subnet with a CIDR block equal to 192.168.1.0/24. Create the subnet in the Amazon VPC from above exercise 4.1, and specify an Availability Zone for the subnet (for example, US-East-1a).
 
@@ -132,7 +132,7 @@ After terminating the instance, the boot drive is destroyed, but the additional 
 
 ---
 
-## Connect Your Custom Amazon VPC to the Internet and Establish Routing
+# Connect Your Custom Amazon VPC to the Internet and Establish Routing
 
 1. Create an internet gateway and attach it to your custom Amazon VPC.
 
@@ -157,7 +157,7 @@ You have now created a connection to the Internet for resources within your Amaz
 <details>
 <summary><b>ELB, CloudWatch & Auto Scaling</b></summary><p>
 
-## Application Load Balancer Lab
+# Application Load Balancer Lab
 
 1. Setup base infrastructure:
 
@@ -245,6 +245,28 @@ AWS now recommends using a launch template instead of a lauch configuration, so 
 
 <details>
 <summary><b>IAM</b></summary><p>
+
+# Create an IAM Group
+
+In this exercise, I create a group for all IAM administrator users and assign the proper permissions to the new group.
+
+1. Log in as the root user.
+2. Create an IAM group called Administrators.
+3. Attach the managed policy, IAMFullAccess, to the Administrators group.
+
+![](/images/group.png)
+
+---
+
+# Create an IAM User
+
+Here I create an IAM user who can perform all administrative IAM functions.
+
+1. While logged in as the root user, create a new IAM user called Administrator.
+2. Add your new user to the Administrators group.
+3. On the Details page for the administrator user, create a password.
+
+![](/images/user.png)
 
 </p></details>
 
