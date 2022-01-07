@@ -120,9 +120,7 @@ After terminating the instance, the boot drive is destroyed, but the additional 
 
 ## Create a Custom Amazon VPC
 
-![](/images/create-vpc.png)
-
----
+## ![](/images/create-vpc.png)
 
 ## Create Two Subnets for Your Custom Amazon VPC
 
@@ -158,6 +156,90 @@ You have now created a connection to the Internet for resources within your Amaz
 
 <details>
 <summary><b>ELB, CloudWatch & Auto Scaling</b></summary><p>
+
+## Application Load Balancer Lab
+
+1. Setup base infrastructure:
+
+- VPC
+
+![](/images/vpc.png)
+
+- create 4 subnets in the above VPC, 2 public(for the elb), 2 private(for the ec2 instances)
+
+![](/images/subnets.png)
+
+- create an internet gateway for internet access for public subnets
+
+![](/images/igw.png)
+
+- attach igw to the vpc
+
+![](/images/attach-igw.png)
+
+- create a NAT gateway in a public subnet(this will provide internet access to VM's in the private subnets)
+
+![](/images/nat.png)
+
+- add routes to the route table of the above vpc to allow internet connectivity (remember, every VPC has a default route table)
+
+![](/images/route1.png)
+
+- associate public subnets to this route table
+
+![](/images/ass-pub-sub.png)
+
+- create route table for NAT gateway
+
+![](/images/nat-route.png)
+
+- edit routes for above route table to allow internet traffic
+
+![](/images/route2.png)
+
+- associate private subnets to this route table
+
+![](/images/ass-priv-sub.png)
+
+Now that have created the base infra, create the EC2 instances
+
+- create 2 EC2 instances, one in each private subnet . In user data add bash script to install web server
+
+```
+#!/bin/bash
+yum install httpd -y
+systemctl enable httpd
+echo '<h1>This is instance1"</h1>' > /var/www/html/index.html
+systemctl start httpd
+```
+
+![](/images/ec2.png)
+
+- create an application load balancer
+
+![](/images/elb.png)
+
+- create a target group with the 2 instances
+
+![](/images/target.png)
+
+- edit the security group for the instances. Edit inbound rules to allow the load balancer to send traffic to the instances
+
+![](/images/edit-sg.png)
+
+- Go back to target group dashboard to confirm the health status of the EC2 instances
+
+![](/images/health.png)
+
+---
+
+# Launch Configuration & Scaling Group
+
+AWS now recommends using a launch template instead of a lauch configuration, so I created a launch templete and used it to create an auto-scaling group.
+
+![](/images/lt.png)
+
+![](/images/asg.png)
 
 </p></details>
 
