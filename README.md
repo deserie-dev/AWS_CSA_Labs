@@ -273,6 +273,32 @@ Here I create an IAM user who can perform all administrative IAM functions.
 <details>
 <summary><b>Databases</b></summary><p>
 
+# Create a MySQL Amazon RDS Instance
+
+![](/images/rds.png)
+
+---
+
+# Create a Read Replica
+
+![](/images/replica.png)
+
+---
+
+# Read and Write from a DynamoDB Table
+
+1. Create a new table named UserProfile with a partition key of userID of type String
+
+![](/images/dynamodb.png)
+
+2. Using the Amazon DynamoDB console, create and save a new item in the table. Set the userID to U01, and append another String attribute called name with a value of Deserie.
+
+![](/images/dd1.png)
+
+![](/images/dd2.png)
+
+---
+
 </p></details>
 
 <details>
